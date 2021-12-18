@@ -78,9 +78,9 @@ if __name__ == '__main__':
     parser.add_argument('--algorithm', type=str, default='dqn', choices=['dqn', 'nfsp'])
     parser.add_argument('--cuda', type=str, default='')
     parser.add_argument('--seed', type=int, default=42)
-    parser.add_argument('--num_episodes', type=int, default=5000)
+    parser.add_argument('--num_episodes', type=int, default=1000)
     parser.add_argument('--num_eval_games', type=int, default=2000)
-    parser.add_argument('--evaluate_every', type=int, default=100)
+    parser.add_argument('--evaluate_every', type=int, default=50)
     parser.add_argument('--log_dir', type=str, default='experiments/uno_dqn_result/')
 
     args = parser.parse_args()

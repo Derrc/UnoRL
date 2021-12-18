@@ -9,6 +9,8 @@ class SameNumberAgent(object):
         self.use_raw = False
         self.num_actions = num_actions
 
+    def feed(self,ts):
+        (state, action, reward, next_state, done) = tuple(ts)
 
     def step(self, state):
         ''' Predict the action given the current state in generating training data.
@@ -22,7 +24,7 @@ class SameNumberAgent(object):
         target = state['raw_obs']['target']
         # print("target: " + target)
         targetNumber = target[2:]
-        print("targetNumber: " + targetNumber)
+        # print("targetNumber: " + targetNumber)
 
         def equalsTargetNumber(action):
             if action == targetNumber:
@@ -47,9 +49,8 @@ class SameNumberAgent(object):
                         return True
             else:
                 return False
-        print('all: ' + str(legalActions))
+
         filteredLegalActions = list(filter(equalsTargetNumber,legalActions))
-        print('filtered: ' + str(filteredLegalActions))
         if filteredLegalActions:
             return np.random.choice(filteredLegalActions)
         else:
